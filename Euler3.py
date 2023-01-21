@@ -1,14 +1,18 @@
 #The prime factors of 13195 are 5, 7, 13 and 29.
 #What is the largest prime factor of the number 600851475143 ?
+import math
 
 def compute():
-	ans = 0
-	x = 1  # Represents the current Fibonacci number being processed
-	y = 2  # Represents the next Fibonacci number in the sequence
-	while x <= 4000000:
-		if x % 2 == 0:
-			ans += x
-		x, y = y, x + y
-	return str(ans)
+	#Wanted number
+	n = 600851475143
+	tmp = 1
+	while tmp < n:
+		#tmp must be not pair as prime factors are
+		tmp += 2
+		#divide n by tmp 
+		while n % tmp == 0:
+			n /= tmp
+	return tmp
 
-print(compute())
+if __name__ == "__main__":
+	print(compute())
